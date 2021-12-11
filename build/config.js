@@ -12,8 +12,6 @@ exports.externals = externals;
 
 exports.alias = {
   src: path.resolve(__dirname, '../src'),
-  packages: path.resolve(__dirname, '../packages'),
-  'iwei-ui': path.resolve(__dirname, '../')
 };
 
 exports.vue = {
@@ -22,5 +20,23 @@ exports.vue = {
   commonjs2: 'vue',
   amd: 'vue'
 };
+exports.html2canvas = {
+  root: 'html2canvas',
+  commonjs: 'html2canvas',
+  commonjs2: 'html2canvas',
+  amd: 'html2canvas'
+};
+exports.jspdf = {
+  root: 'jspdf',
+  commonjs: 'jspdf',
+  commonjs2: 'jspdf',
+  amd: 'jspdf'
+};
+exports.dev = {
+  host: 'localhost', // can be overwritten by process.env.HOST
+  port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+  autoOpenBrowser: true,
+  notifyOnErrors: false,
+}
 
-exports.jsexclude = /node_modules|utils\/popper\.js|utils\/date\.js/;
+exports.jsexclude = /node_modules/;

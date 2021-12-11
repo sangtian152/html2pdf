@@ -1,6 +1,5 @@
 const path = require('path');
 // const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-
 const config = require('./config');
 
 module.exports = {
@@ -11,8 +10,8 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), './lib'),
     publicPath: '/dist/',
-    filename: 'html2pdf.js',
-    chunkFilename: '[id].js',
+    filename: 'html2pdf.common.js',
+    chunkFilename: '[name].js',
     libraryExport: 'default',
     library: 'html2pdf',
     libraryTarget: 'commonjs2'

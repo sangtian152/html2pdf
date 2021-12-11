@@ -7,13 +7,22 @@ const config = require('./config');
 module.exports = {
   mode: 'production',
   entry: {
-    app: ['./src/index.js']
+    app: './demo/index.js'
   },
+  /* output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    // 配置打包输出环境，不使用箭头函数
+    environment: {
+      arrowFunction: false
+    }
+  }, */
   output: {
     clean: true, // 在生成文件之前清空 output 目录
     path: path.resolve(process.cwd(), './lib'),
     publicPath: '/dist/',
-    filename: 'index.js',
+    filename: 'html2pdf.umd.js',
     chunkFilename: '[name].js',
     libraryTarget: 'umd',
     libraryExport: 'default',
@@ -26,7 +35,9 @@ module.exports = {
     alias: config.alias
   },
   externals: {
-    vue: config.vue
+    vue: config.vue,
+    html2canvas: config.html2canvas,
+    jspdf: config.jspdf
   },
   optimization: {
     minimizer: [
