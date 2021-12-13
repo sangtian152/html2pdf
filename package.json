@@ -2,11 +2,11 @@
   "name": "html2pdf",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/html2pdf.umd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config build/webpack.dev.js",
-    "build:lib": "webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js"
+    "build:lib": "webpack --config build/webpack.umd.js && webpack --config build/webpack.common.js"
   },
   "keywords": [],
   "author": "",

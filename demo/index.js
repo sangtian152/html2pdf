@@ -16,7 +16,8 @@ document.getElementById('print').onclick = function(){
     const table = document.getElementById('table')
     html2pdf(table, {
         background: '#aadddd',
-        minimumUnit: 'tr'
+        minimumUnit: 'tr',
+        orientation: 'l'
     })
 }
 const g = gen();

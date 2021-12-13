@@ -220,11 +220,13 @@ const html2pdf = function(element, options) {
         scale: 2, // 缩放倍数
         padding: [ 20 ], // 边距
         format: 'a4', // 纸型
-        orientation: 'p', // 方向 p 或 l
+        orientation: 'p', // 方向 p（纵向） 或 l（横向）
         unit: 'pt', // 单位
         stretch: true,  // 当打印内容宽度小于pdf宽度时，是否拉伸
         background: '#fff', // 背景色
-        minimumUnit: '' // 最小分割单元
+        useCORS: false,
+        minimumUnit: '', // 最小分割单元
+        ignoreElements: (ele) => false // 排除元素
     }, options);
     const { title, scale, orientation, unit, format, padding, stretch, background } = opt;
     const pad = getPadding(padding)
@@ -236,10 +238,12 @@ const html2pdf = function(element, options) {
         const PAGE_HEIGHT = page.height;
         html2Canvas(element, {
             scale,
-            tainttest: true,
-            backgroundColor: background,
             width: DOM_WIDTH, // dom 原始宽度
-            height: DOM_HEIGHT // dom 原始高度
+            height: DOM_HEIGHT, // dom 原始高度
+            useCORS: opt.useCORS,
+            tainttest: true,
+            ignoreElements: opt.ignoreElements,
+            backgroundColor: background,
         }).then(function (canvas) {
             // 生成的canvas宽高
             const CTX_WIDTH = canvas.width;

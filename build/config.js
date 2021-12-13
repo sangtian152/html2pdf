@@ -12,14 +12,9 @@ exports.externals = externals;
 
 exports.alias = {
   src: path.resolve(__dirname, '../src'),
+  html2pdf: path.resolve(__dirname, '../'),
 };
 
-exports.vue = {
-  root: 'Vue',
-  commonjs: 'vue',
-  commonjs2: 'vue',
-  amd: 'vue'
-};
 exports.html2canvas = {
   root: 'html2canvas',
   commonjs: 'html2canvas',
