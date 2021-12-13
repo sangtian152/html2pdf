@@ -1,4 +1,4 @@
-## html2pdf
+# html2pdf
 
 ## 介绍
 将html生成pdf，依赖html2canvas和jspdf
@@ -10,7 +10,7 @@ npm install @sangtian152/html2pdf --save
 yarn add @sangtian152/html2pdf
 ```
 
-### 引入
+### 使用
 ```
 import html2pdf from '@sangtian152/html2pdf';
 
@@ -21,7 +21,7 @@ html2pdf(element, options);
 
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| element   | 要生成pdf的dom元素   | Element        |  —   |   —   |
+| element   | 要生成pdf的dom元素   | Element     |  —   |   —   |
 | options   | 配置参数，详见options   | Object  |  —   |  —   |
 
 
@@ -37,7 +37,7 @@ html2pdf(element, options);
 | unit   | 单位   | String  |  —   |  pt   |
 | stretch   | 当打印内容宽度小于pdf宽度时，是否拉伸   | Boolean  |  —   |  true  |
 | background   | pdf背景色   | String  |  —   |  #ffffff   |
-| useCORS   | 是否跨域，为true时才能加载跨域图片（需后端开启跨域）   | Boolean  |  —   |  false   |
+| useCORS   | 是否尝试使用CORS从服务器加载图像（需后端开启跨域）   | Boolean  |  —   |  false   |
 | minimumUnit   | 最小分割单元，分页时最小分割单元不会被分成半截（如果单个最小分割单元高度已经超出PDF页面高度也会被分割）   | String  |  css选择器   |  —   |
 | ignoreElements   | 设置排除元素，参数为当前dom元素，要求返回 Boolean   | Function  |  —   |  —   |
 
