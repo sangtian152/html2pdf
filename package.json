@@ -1,15 +1,20 @@
 {
-  "name": "html2pdf",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@sangtian152/html2pdf",
+  "version": "1.0.2",
+  "description": "将html生成pdf，依赖html2canvas和jspdf",
   "main": "lib/html2pdf.umd.js",
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config build/webpack.dev.js",
     "build:lib": "webpack --config build/webpack.umd.js && webpack --config build/webpack.common.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["jspdf", "html2pdf"],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/sangtian152/html2pdf.git"
+  },
+  "author": "sangtian152",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
