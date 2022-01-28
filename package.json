@@ -1,6 +1,6 @@
 {
   "name": "@sangtian152/html2pdf",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "将html生成pdf，依赖html2canvas和jspdf",
   "main": "lib/html2pdf.umd.js",
   "private": false,
@@ -15,7 +15,7 @@
     "url": "https://gitee.com/sangtian152/html2pdf.git"
   },
   "author": "sangtian152",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",

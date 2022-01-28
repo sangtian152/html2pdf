@@ -256,7 +256,7 @@ const html2pdf = function(element, options) {
             // 一页pdf显示html页面生成的canvas高度;
             const CTX_PAGE_HEIGHT = CTX_WIDTH / PDF_WIDTH * PDF_HEIGHT;
             const pdf = new JsPDF(orientation, unit, format);
-            setFillColor(pdf, PAGE_WIDTH, PAGE_HEIGHT, options.background)
+            setFillColor(pdf, PAGE_WIDTH, PAGE_HEIGHT, background)
             // 有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(PAGE_HEIGHT)
             // 当内容未超过pdf一页显示的范围，无需分页
             if (CTX_HEIGHT < CTX_PAGE_HEIGHT) {
@@ -267,7 +267,7 @@ const html2pdf = function(element, options) {
                 pages.forEach((page, index) => {
                     if (index > 0) {
                         pdf.addPage();
-                        setFillColor(pdf, PAGE_WIDTH, PAGE_HEIGHT, options.background)
+                        setFillColor(pdf, PAGE_WIDTH, PAGE_HEIGHT, background)
                     }
                     const { offsetTop } = page[0];
                     const { top } = page[page.length - 1];
