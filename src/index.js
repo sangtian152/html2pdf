@@ -147,11 +147,16 @@ const getDisTop = function (element) {
     }
     return realTop;
 }
+// 分页
 const splitPage = function($dom, PDF_WIDTH, PDF_HEIGHT, minimumUnit) {
+    // 需要打印pdf的元素整体宽度
     const pageOffsetWidth = $dom.offsetWidth;
-    const peerPageHeight = pageOffsetWidth / PDF_WIDTH * PDF_HEIGHT; // 获取缩放后的一页页面高度
+    // 一页pdf对应的html高度
+    const peerPageHeight = pageOffsetWidth / PDF_WIDTH * PDF_HEIGHT;
     const pages = [];
+    // 如果没有设置最小分割单元，直接分页
     if(!minimumUnit) {
+      // 需要打印pdf的元素整体高度
         const pageOffsetHeight = $dom.offsetHeight;
         for(let offsetTop = 0; offsetTop < pageOffsetHeight; offsetTop+=peerPageHeight) {
             pages.push([{
@@ -165,7 +170,9 @@ const splitPage = function($dom, PDF_WIDTH, PDF_HEIGHT, minimumUnit) {
         top: 0,
         offsetTop: 0
     }])
+    // 需要打印pdf的元素到页面顶部的距离
     const pageOffsetTop = getDisTop($dom);
+    // 获取所有最小分割单元
     const $unitElements = $dom.querySelectorAll(minimumUnit);
     // 遍历最小单元格
     // 获取单元格底部距离顶部的高度 top，以及 offsetTop
@@ -173,11 +180,15 @@ const splitPage = function($dom, PDF_WIDTH, PDF_HEIGHT, minimumUnit) {
     let pageIndex = 0;
     let oldTop = 0;
     $unitElements.forEach($element => {
+        // 当前元素到页面顶部的距离 
         const toTop = getDisTop($element);
+        // 当前元素到pdf顶部的距离
         const offsetTop = toTop - pageOffsetTop;
+        // 当前元素底部到pdf顶部的距离
         const top = offsetTop + $element.offsetHeight;
+        // 除以一页pdf的html高度向下取整
         const flag = Math.floor((top - oldTop) / peerPageHeight);
-        // 新的一页
+        // flag等于1，说明需要添加新的一页
         if (flag === 1) {
             pageIndex++;
             pages[pageIndex] = [];
@@ -192,6 +203,7 @@ const splitPage = function($dom, PDF_WIDTH, PDF_HEIGHT, minimumUnit) {
 
     return pages;
 }
+// 换算边距
 const getPadding = function (arr){
     const pad = {
         top: 0,
@@ -207,7 +219,7 @@ const getPadding = function (arr){
     }
     return pad
 }
-
+// 设置填充颜色
 const setFillColor = function(pdf, width, height, color){
     if(color){
         pdf.setFillColor(color)

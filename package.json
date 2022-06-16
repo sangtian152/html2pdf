@@ -1,6 +1,6 @@
 {
   "name": "@sangtian152/html2pdf",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "将html生成pdf，依赖html2canvas和jspdf",
   "main": "lib/html2pdf.umd.js",
   "private": false,
